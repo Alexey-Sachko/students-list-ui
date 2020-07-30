@@ -2,6 +2,7 @@ import { createSlice, PayloadAction, createSelector } from "@reduxjs/toolkit";
 import Axios from "axios";
 import { IStudent } from "../../../types/student.interface";
 import { TypedThunkAction, RootState } from "../..";
+import { config } from "../../../config";
 
 type StudentsState = {
   loading: boolean;
@@ -61,7 +62,7 @@ const { fetchStart, fetchSuccess, fetchError } = studentsSlice.actions;
 export const fetchStudendsList = (): TypedThunkAction => async (dispatch) => {
   dispatch(fetchStart());
   try {
-    const res = await Axios.get("/");
+    const res = await Axios.get(`${config.apiBaseUrl}/students`);
     dispatch(fetchSuccess(res.data));
   } catch (error) {
     dispatch(fetchError("something went wrong"));
