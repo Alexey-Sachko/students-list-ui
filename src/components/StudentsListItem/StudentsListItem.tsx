@@ -42,7 +42,7 @@ const StudentsListItem = ({ student }: Props) => {
           </>
         }
       />
-      <Divider orientation="vertical" />
+      <Divider orientation="vertical" flexItem />
       <Typography
         className={classes.performanceBlock}
         variant="caption"
@@ -68,6 +68,7 @@ const useStyles = makeStyles(() =>
   createStyles({
     performanceBlock: {
       marginRight: "30px",
+      marginLeft: "10px",
     },
   })
 );
