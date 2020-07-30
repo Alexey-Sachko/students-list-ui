@@ -52,12 +52,18 @@ const studentsSlice = createSlice({
         return student.id;
       });
     },
+    addStudent: (state, { payload: student }: PayloadAction<IStudent>) => {
+      state.items.byId[student.id] = student;
+      state.items.ids.unshift(student.id);
+    },
   },
 });
 
 export const studentsReducer = studentsSlice.reducer;
 
 const { fetchStart, fetchSuccess, fetchError } = studentsSlice.actions;
+
+export const { addStudent } = studentsSlice.actions;
 
 export const fetchStudendsList = (): TypedThunkAction => async (dispatch) => {
   dispatch(fetchStart());
