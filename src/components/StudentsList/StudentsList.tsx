@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { List } from "@material-ui/core";
 import {
   fetchStudendsList,
   studentsListSelector,
@@ -17,11 +18,11 @@ const StudentsList = () => {
   }, [dispatch]);
 
   return (
-    <ul>
+    <List>
       {studentsList.map((student) => (
         <StudentsListItem key={student.id} student={student} />
       ))}
-    </ul>
+    </List>
   );
 };
 

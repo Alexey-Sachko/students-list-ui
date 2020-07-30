@@ -1,11 +1,12 @@
 import React from "react";
 import StudentsList from "../StudentsList";
+import { Container } from "@material-ui/core";
 
 const StudentsPage = () => {
   return (
-    <div>
+    <Container maxWidth="sm">
       <StudentsList />
-    </div>
+    </Container>
   );
 };
 
